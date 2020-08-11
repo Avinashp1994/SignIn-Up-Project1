@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        
+<form >
+    <h2>LOGIN</h2>
+    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <label for="email">UserName</label>
+        <input type="text" class="form-control" id="email" required email name="email" #email="ngModel" [(ngModel)]='model.email' placeholder="Enter email"
+            autofocus>
+            <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                Email Is Required
+            </span>
+            <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                Email Is Invalid
+            </span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]='model.password'
+            placeholder="Password">
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary" (click)="change()" style="width: 300px">Login</button>
+    <br>
+    <br>
+    <h5>Don't have account? <a [routerLink]="['/app-register']">SignUp</a></h5>
+
+    
+
+</form>
+</div>
+
+<div class="col">
+    <img src="assets/log.jpg">
+</div>
+</div>
+</div>
+
+

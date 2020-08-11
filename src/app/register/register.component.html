@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        
+        
+<div class="col">
+<form>
+
+    <h2>SINGUP</h2>
+    <div class="form-group">
+        <label for="firstname">FirstName</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]='model.firstname' placeholder="Enter FirstName"
+            autofocus>
+    </div>
+    <div class="form-group">
+        <label for="lastname">LastName</label>
+        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]='model.lastname'
+            placeholder="Enter LastName">
+    </div>
+    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <label for="email">Email-Id</label>
+        <input type="text" class="form-control" id="email" required email name="email" #email="ngModel" placeholder="Enter email" [(ngModel)]='model.email'
+            autofocus>
+        <span class="help-block" *ngIf="email.errors?.required && email.touched">
+            Email Is Required
+        </span>
+        <span class="help-block" *ngIf="email.errors?.email && email.touched">
+            Email Is Invalid
+        </span>
+    </div>
+    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <label for="mobile">Phone-No</label>
+        <input type="text" class="form-control" id="mobile" name="mobile" required mobile maxlength="10" minlength="10" #mobile="ngModel"
+         [(ngModel)]='model.mobile' placeholder="Enter Phone-Number">
+        <span class="help-block" *ngIf="mobile.errors?.required && mobile.touched">
+            Number Is Required
+        </span>
+        <span class="help-block" *ngIf="mobile.errors?.mobile && mobile.touched">
+            Number Is Invalid
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]='model.password' placeholder="Enter Password"
+            autofocus>
+    </div>
+   
+
+    <button type="submit" class="btn btn-warning" (click)="change()" id="save" style="width: 300px">Sign-Up</button>
+    <br>
+    <br>
+    <h5>Already have account? <a [routerLink]="['/app-login']">SignIn</a></h5>
+    
+
+
+</form>
+</div>
+
+<div class="col">
+    <img src="assets/reg.jpg">
+</div>
+
+</div>
+</div>
